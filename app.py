@@ -794,6 +794,30 @@ div[data-testid="stMarkdownContainer"] p {
 }
 
 
+/* ================= GRAPH TEXT FIX ================= */
+/* Plotly titles, axis labels, ticks, legend */
+svg text,
+.gtitle,
+.xtitle,
+.ytitle,
+.legend text {
+    fill: var(--text-dark) !important;
+}
+
+/* ================= ANALYZE BUTTON FIX ================= */
+
+.stButton > button {
+    background: var(--bg-white) !important;   /* light */
+    color: var(--text-dark) !important;        /* dark text */
+    border: 1px solid rgba(230, 57, 70, 0.25) !important;
+    box-shadow: 0 8px 20px rgba(230, 57, 70, 0.2) !important;
+}
+
+.stButton > button span {
+    color: var(--text-dark) !important;
+    font-weight: 700;
+}
+
 
 </style>
 """, unsafe_allow_html=True)
