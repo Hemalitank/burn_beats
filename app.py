@@ -59,7 +59,6 @@ st.markdown("""
 /* Hide default Streamlit elements */
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
-header {visibility: hidden;}
 
 /* ===== REMOVE EXTRA TOP SPACE ===== */
 [data-testid="stAppViewContainer"] {
@@ -70,12 +69,18 @@ header {visibility: hidden;}
     padding-top: 0.5rem !important;
 }
 
-/* Remove hidden header space completely */
-header {
+/* ===== REMOVE STREAMLIT HEADER SAFELY ===== */
+[data-testid="stHeader"] {
     height: 0px !important;
     padding: 0 !important;
     margin: 0 !important;
+    overflow: hidden !important;
+    background: transparent !important;
 }
+.main-header {
+    z-index: 999;
+}
+
 
 
 /* ===== MAIN HEADER (ALWAYS VISIBLE) ===== */
