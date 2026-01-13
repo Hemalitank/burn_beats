@@ -532,6 +532,39 @@ footer {visibility: hidden;}
 }
 
 /* ===== TAB STYLING ===== */
+
+/* Make tab bar full width */
+.stTabs [data-baseweb="tab-list"] {
+    display: flex;
+    width: 100%;
+}
+
+/* Tabs take equal width */
+.stTabs [data-baseweb="tab"] {
+    flex: 1;
+    text-align: center;
+}
+
+
+.stTabs [data-baseweb="tab"] {
+    padding: 14px 36px !important;   /* ⬅ wider orange box */
+    border-radius: 14px;
+    transition: all 0.35s ease;
+}
+
+/* Selected tab animation */
+.stTabs [aria-selected="true"] {
+    background: linear-gradient(135deg, var(--fire-red), var(--fire-orange)) !important;
+    color: white !important;
+    box-shadow: 0 8px 25px rgba(247, 127, 0, 0.35);
+    transform: scale(1.05);
+}
+
+/* Hover effect (smooth) */
+.stTabs [data-baseweb="tab"]:hover {
+    background: rgba(247, 127, 0, 0.15);
+}
+
 .stTabs [data-baseweb="tab-list"] {
     background: #FAFAFA;
     border-radius: 16px;
@@ -643,46 +676,82 @@ footer {visibility: hidden;}
 /* Force Label Colors (Input fields, sliders, etc) */
 .stTextInput label, .stNumberInput label, .stSelectbox label, .stSlider label, .stRadio label p {
     color: #1A1A2E !important;
-    font-weight: 600 !important;
+    font-weight: 700 !important;
+}
+/* ================= RADIO BUTTON FINAL DESIGN ================= */
+
+/* Native radio fallback (browser level) */
+.stRadio input[type="radio"] {
+    accent-color: var(--fire-orange) !important;
+    background-color: var(--bg-white) !important;
+    filter: none !important;
 }
 
-/* ================= RADIO BUTTON FIX ================= */
-/* This targets the Radio Button text explicitly */
-.stRadio div[role="radiogroup"] label div[data-testid="stMarkdownContainer"] p {
-    color: #1A1A2E !important;
+/* Streamlit custom radio – outer circle */
+div[role="radiogroup"] > label > div:first-child {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--bg-white) !important;      /* unselected = white */
+    border: 2px solid var(--fire-orange) !important;   /* orange ring */
+    position: relative;
+}
+
+
+/* Inner white dot (checked only) */
+div[role="radiogroup"] > label > div:first-child[aria-checked="true"]::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background-color: var(--bg-white);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Radio text */
+div[role="radiogroup"] label div[data-testid="stMarkdownContainer"] p {
+    color: var(--text-dark) !important;
     font-weight: 500 !important;
 }
 
-/* This targets the actual Radio Button Circle (Unchecked) */
-.stRadio div[role="radiogroup"] label div[role="radio"] {
+
+/* ================= SELECTBOX FIX (AGGRESSIVE) ================= */
+/* Force the container to be white */
+div[data-baseweb="select"] > div {
     background-color: #FFFFFF !important;
-    border: 2px solid #F77F00 !important;
-}
-
-/* This targets the actual Radio Button Circle (Checked) */
-.stRadio div[role="radiogroup"] label div[role="radio"][aria-checked="true"] {
-    background-color: #F77F00 !important;
+    color: #1A1A2E !important;
     border-color: #F77F00 !important;
-    color: #FFFFFF !important;
 }
 
-/* Fix for the inner dot in some Streamlit versions */
-.stRadio div[role="radiogroup"] label div[role="radio"] div {
-    background-color: #F77F00 !important;
+/* The selected value text */
+div[data-testid="stSelectbox"] div[data-baseweb="select"] div {
+    color: #1A1A2E !important;
 }
 
-/* ================= ANALYZE BUTTON FIX ================= */
-/* Targeting the button more specifically to override defaults */
+/* Dropdown menu items */
+li[role="option"] {
+    background-color: #FFFFFF !important;
+    color: #1A1A2E !important;
+}
+
+/* ================= ANALYZE BUTTON FIX (AGGRESSIVE) ================= */
+/* Target the button with high specificity */
 div.stButton > button {
     background: linear-gradient(135deg, #E63946, #F77F00) !important;
     color: #FFFFFF !important;
     border: none !important;
     padding: 16px 55px !important;
     border-radius: 50px !important;
-    font-weight: 700 !important;
+    font-weight: 800 !important;
     font-size: 1.15rem !important;
     box-shadow: 0 12px 35px rgba(230, 57, 70, 0.35) !important;
-    transition: all 0.3s ease !important;
+}
+
+div.stButton > button p {
+    color: #FFFFFF !important;
 }
 
 div.stButton > button:hover {
@@ -691,34 +760,15 @@ div.stButton > button:hover {
     color: #FFFFFF !important;
 }
 
-div.stButton > button p {
-    color: #FFFFFF !important;
-}
-
-/* ================= GRAPH & TEXT FIXES ================= */
-/* Plotly titles, axis labels, ticks, legend */
-.main-svg text, .gtitle, .xtitle, .ytitle, .legend text {
-    fill: #1A1A2E !important;
-    font-family: 'Segoe UI', sans-serif !important;
-}
-
-/* Tab Bar Styling (Preserved) */
-.stTabs [data-baseweb="tab-list"] {
-    background: #FAFAFA;
-    border-radius: 16px;
-    padding: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    gap: 8px;
-}
-
-.stTabs [data-baseweb="tab"] {
+/* ================= METRIC & ABOUT PAGE FIX ================= */
+/* Metric Labels and Values */
+[data-testid="stMetricLabel"], [data-testid="stMetricValue"] {
     color: #1A1A2E !important;
-    font-weight: 600 !important;
 }
 
-.stTabs [aria-selected="true"] {
-    background: linear-gradient(135deg, #E63946, #F77F00) !important;
-    color: white !important;
+/* About Page Paragraphs */
+div[data-testid="stMarkdownContainer"] p {
+    color: #1A1A2E !important;
 }
 
 
@@ -953,7 +1003,7 @@ with tabs[1]:
         st.markdown("<br>", unsafe_allow_html=True)
         col_l, col_c, col_r = st.columns([1, 2, 1])
         with col_c:
-            submit = st.form_submit_button("🔥 Analyze My Heart Risk", use_container_width=True)
+            submit = st.form_submit_button("🔥 Analyze My Heart Risk")
 
     # ===================== PREDICTION LOGIC =====================
     if submit:
