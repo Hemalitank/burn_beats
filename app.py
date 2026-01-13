@@ -818,6 +818,26 @@ svg text,
     font-weight: 700;
 }
 
+.stButton > button:hover {
+    transform: translateY(-3px) scale(1.02) !important;
+    box-shadow: 0 18px 45px rgba(230, 57, 70, 0.45) !important;
+    color: var(--text-dark) !important;
+    background: var(--bg-white) !important;
+}
+
+.stButton > button:active {
+    transform: translateY(-1px) scale(0.98) !important;
+    box-shadow: 0 6px 15px rgba(230, 57, 70, 0.3) !important;
+    color: var(--text-dark) !important;
+    background: var(--bg-white) !important;
+}
+
+.stButton > button:disabled {
+    transform: translateY(-1px) scale(0.98) !important;
+    box-shadow: 0 6px 15px rgba(230, 57, 70, 0.3) !important;
+    color: var(--text-dark) !important;
+    background: var(--bg-white) !important;
+}
 
 </style>
 """, unsafe_allow_html=True)
