@@ -670,10 +670,6 @@ label,
 
 /* ================= TEXT VISIBILITY FIX ================= */
 
-/* General text */
-p, span, li, div {
-    color: var(--text-dark);
-}
 
 /* Headings (Personal Info, Lifestyle, About, etc.) */
 h1, h2, h3, h4, h5, h6 {
@@ -770,31 +766,86 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600 !important;
 }
 
-/* ================= RADIO BUTTON LIGHT MODE FIX ================= */
+/* ================= RADIO BUTTON FIX ================= */
 
-/* Radio container (always light) */
 .stRadio > div {
-    background: #FAFAFA !important;
+    background: #FFFFFF !important;
     border-radius: 12px;
     padding: 12px 18px;
-    border: 1px solid rgba(230, 57, 70, 0.12);
+    border: 1px solid rgba(230, 57, 70, 0.15);
 }
 
-/* Radio option text (dark, readable) */
+/* Radio text */
 .stRadio div[role="radiogroup"] label span {
     color: #1A1A2E !important;
     font-weight: 500;
 }
 
-/* Radio circles – force light style */
+/* Radio circle */
 .stRadio input[type="radio"] {
     background-color: #FFFFFF !important;
-    accent-color: #E63946 !important;   /* red dot */
+    accent-color: #E63946 !important;
 }
 
-/* Prevent dark mode overrides */
-.stRadio input[type="radio"]:checked {
-    background-color: #FFFFFF !important;
+/* ================= SELECTBOX LIGHT FIX ================= */
+
+.stSelectbox > div > div {
+    background: #FFFFFF !important;
+    color: #1A1A2E !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(230, 57, 70, 0.15) !important;
+}
+
+/* Dropdown text */
+.stSelectbox span {
+    color: #1A1A2E !important;
+}
+
+/* ================= ANALYZE BUTTON FIX ================= */
+
+.stButton > button {
+    background: #FFF7ED !important;   /* light */
+    color: #1A1A2E !important;        /* dark text */
+    border: 1px solid rgba(230, 57, 70, 0.25) !important;
+    box-shadow: 0 8px 20px rgba(230, 57, 70, 0.2) !important;
+}
+
+.stButton > button span {
+    color: #1A1A2E !important;
+    font-weight: 700;
+}
+
+/* ================= PREDICTION GRAPH RANGE FIX ================= */
+
+/* Plotly main title */
+.gtitle {
+    fill: #1A1A2E !important;
+    font-weight: 700 !important;
+}
+
+/* X & Y axis titles */
+.xtitle,
+.ytitle {
+    fill: #1A1A2E !important;
+    font-weight: 600 !important;
+}
+
+/* Axis tick labels (ranges like 0–10k, Risk levels, etc.) */
+.xtick text,
+.ytick text {
+    fill: #1A1A2E !important;
+    font-weight: 500 !important;
+}
+
+/* Legend text (Risk / No Risk / Active / Inactive) */
+.legend text {
+    fill: #1A1A2E !important;
+    font-weight: 600 !important;
+}
+
+/* Colorbar (if probability / risk scale is used) */
+.colorbar text {
+    fill: #1A1A2E !important;
 }
 
 
