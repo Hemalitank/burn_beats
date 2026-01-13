@@ -312,29 +312,8 @@ footer {visibility: hidden;}
     letter-spacing: -0.5px;
 }
 
-/* ===== INPUT STYLING ===== */
-.stSlider > div > div > div {
-    background: linear-gradient(90deg, var(--fire-red), var(--fire-orange), var(--fire-yellow)) !important;
-}
 
-.stSlider > div > div > div > div {
-    background: var(--fire-red) !important;
-    border: 3px solid white !important;
-    box-shadow: 0 0 12px rgba(230, 57, 70, 0.4) !important;
-}
 
-.stRadio > div {
-    background: #FAFAFA;
-    padding: 12px 18px;
-    border-radius: 12px;
-    border: 1px solid rgba(230, 57, 70, 0.1);
-}
-
-.stSelectbox > div > div {
-    background: #FAFAFA !important;
-    border: 1px solid rgba(230, 57, 70, 0.15) !important;
-    border-radius: 12px !important;
-}
 
 /* ===== SUBMIT BUTTON ===== */
 .stButton > button {
@@ -562,14 +541,6 @@ footer {visibility: hidden;}
     border: 1px solid rgba(0,0,0,0.05);
 }
 
-.stTabs [data-baseweb="tab"] {
-    border-radius: 12px;
-    padding: 14px 28px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    font-size: 0.95rem;
-}
-
 .stTabs [aria-selected="true"] {
     background: linear-gradient(135deg, var(--fire-red), var(--fire-orange)) !important;
     color: white !important;
@@ -656,6 +627,173 @@ footer {visibility: hidden;}
     100% { width: 100%; }
 
 }
+
+/* ================= CLOUD SAFE FIXES ================= */
+
+/* Keep header but transparent */
+[data-testid="stHeader"] {
+    background: transparent !important;
+}
+
+/* Force label visibility */
+label,
+.stSlider label,
+.stRadio label,
+.stSelectbox label {
+    color: #1A1A2E !important;
+    font-weight: 600 !important;
+}
+
+/* Safe slider knob styling */
+.stSlider [role="slider"] {
+    background: #E63946 !important;
+    border: 3px solid white !important;
+}
+
+/* Safe tab text colors */
+.stTabs [data-baseweb="tab"] {
+    color: #1A1A2E !important;
+    font-weight: 600 !important;
+}
+
+.stTabs [aria-selected="true"] {
+    background: linear-gradient(135deg, #E63946, #F77F00) !important;
+    color: white !important;
+    border-radius: 12px;
+}
+
+/* ================= STREAMLIT CLOUD FIX ================= */
+
+/* Force all form labels to stay visible */
+label,
+.stSlider label,
+.stRadio label,
+.stSelectbox label {
+    color: #1A1A2E !important;
+    font-weight: 600 !important;
+}
+
+/* SAFE slider styling (knob only) */
+.stSlider [role="slider"] {
+    background: var(--fire-red) !important;
+    border: 3px solid white !important;
+    box-shadow: 0 0 10px rgba(230, 57, 70, 0.4) !important;
+}
+
+/* Ensure tab text is always visible */
+.stTabs [data-baseweb="tab"] {
+    color: #1A1A2E !important;
+    font-weight: 600 !important;
+}
+
+/* Active tab styling (safe) */
+.stTabs [aria-selected="true"] {
+    background: linear-gradient(135deg, var(--fire-red), var(--fire-orange)) !important;
+    color: white !important;
+    border-radius: 12px;
+}
+
+/* ===== CLOUD LABEL FIX (NO UI CHANGE) ===== */
+label,
+.stSlider label,
+.stRadio label,
+.stSelectbox label {
+    color: var(--text-dark) !important;
+}
+
+/* ================= TEXT VISIBILITY FIX ================= */
+
+/* Paragraphs & markdown text only */
+.stMarkdown p,
+.stMarkdown li,
+.stMarkdown span {
+    color: var(--text-dark) !important;
+}
+
+
+/* Headings (Personal Info, Lifestyle, About, etc.) */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+/* Radio label text */
+.stRadio label span {
+    color: var(--text-dark) !important;
+}
+
+/* Radio circle (unchecked) */
+.stRadio input[type="radio"] + div {
+    background: white !important;
+    border: 2px solid var(--fire-orange) !important;
+}
+
+/* Radio circle (checked) */
+.stRadio input[type="radio"]:checked + div {
+    background: var(--fire-orange) !important;
+    border-color: var(--fire-orange) !important;
+}
+
+/* ================= BUTTON COLOR FIX ================= */
+
+.stButton > button span {
+    color: white !important;
+}
+
+/* ================= GRAPH TEXT FIX ================= */
+
+/* Plotly titles & axis labels */
+.gtitle, .xtitle, .ytitle, .legend text {
+    fill: var(--text-dark) !important;
+}
+
+/* Plotly axis + ticks + legend */
+svg text {
+    fill: var(--text-dark) !important;
+}
+/* ================= TAB WIDTH & ANIMATION FIX ================= */
+
+/* Make tab bar full width */
+.stTabs [data-baseweb="tab-list"] {
+    display: flex;
+    width: 100%;
+}
+
+/* Tabs take equal width */
+.stTabs [data-baseweb="tab"] {
+    flex: 1;
+    text-align: center;
+}
+
+/* ================= TAB ANIMATION FIX ================= */
+
+# .stTabs [data-baseweb="tab"] {
+#     padding: 14px 36px !important;   /* ⬅ wider orange box */
+#     border-radius: 14px;
+#     transition: all 0.35s ease;
+# }
+
+/* Selected tab animation */
+.stTabs [aria-selected="true"] {
+    background: linear-gradient(135deg, var(--fire-red), var(--fire-orange)) !important;
+    color: white !important;
+    box-shadow: 0 8px 25px rgba(247, 127, 0, 0.35);
+    transform: scale(1.05);
+}
+
+/* Hover effect (smooth) */
+.stTabs [data-baseweb="tab"]:hover {
+    background: rgba(247, 127, 0, 0.15);
+}
+
+/* ================= ABOUT PAGE TEXT FIX ================= */
+
+.stMarkdown p {
+    color: var(--text-dark) !important;
+    line-height: 1.7;
+}
+
+
 </style>
 """, unsafe_allow_html=True)
 # =============================================================================
