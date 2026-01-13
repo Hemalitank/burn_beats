@@ -700,6 +700,73 @@ label,
     border-radius: 12px;
 }
 
+/* ================= TEXT VISIBILITY FIX ================= */
+
+/* General text */
+p, span, li, div {
+    color: var(--text-dark);
+}
+
+/* Headings (Personal Info, Lifestyle, About, etc.) */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+/* Streamlit section headers */
+[data-testid="stMarkdownContainer"] h1,
+[data-testid="stMarkdownContainer"] h2,
+[data-testid="stMarkdownContainer"] h3 {
+    color: var(--text-dark) !important;
+}
+
+/* Radio (Gender) options */
+.stRadio div[role="radiogroup"] label span {
+    color: var(--text-dark) !important;
+    font-weight: 500;
+}
+
+/* Selectbox & slider text */
+.stSelectbox span,
+.stSlider span {
+    color: var(--text-dark) !important;
+}
+
+/* ================= GRAPH TEXT FIX ================= */
+
+/* Plotly titles & axis labels */
+.gtitle, .xtitle, .ytitle, .legend text {
+    fill: var(--text-dark) !important;
+}
+
+/* ================= TAB WIDTH & ANIMATION FIX ================= */
+
+.stTabs [data-baseweb="tab"] {
+    padding: 14px 36px !important;   /* ⬅ wider orange box */
+    border-radius: 14px;
+    transition: all 0.35s ease;
+}
+
+/* Selected tab animation */
+.stTabs [aria-selected="true"] {
+    background: linear-gradient(135deg, var(--fire-red), var(--fire-orange)) !important;
+    color: white !important;
+    box-shadow: 0 8px 25px rgba(247, 127, 0, 0.35);
+    transform: scale(1.05);
+}
+
+/* Hover effect (smooth) */
+.stTabs [data-baseweb="tab"]:hover {
+    background: rgba(247, 127, 0, 0.15);
+}
+
+/* ================= ABOUT PAGE TEXT FIX ================= */
+
+.stMarkdown p {
+    color: var(--text-dark) !important;
+    line-height: 1.7;
+}
+
 </style>
 """, unsafe_allow_html=True)
 # =============================================================================
