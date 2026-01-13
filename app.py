@@ -630,197 +630,97 @@ footer {visibility: hidden;}
 
 /* ================= CLOUD SAFE FIXES (ROOT VARIABLES) ================= */
 
-/* Keep header but transparent */
-[data-testid="stHeader"] {
-    background: transparent !important;
+/* Enforce Light Theme Background */
+[data-testid="stAppViewContainer"] {
+    background-color: #FFFFFF !important;
 }
 
-/* Force label visibility */
-label,
-.stSlider label,
-.stRadio label,
-.stSelectbox label {
-    color: var(--text-dark) !important;
-    font-weight: 600 !important;
+/* Force Text Color for ALL Streamlit Elements */
+.stMarkdown, .stMarkdown p, .stMarkdown h1, .stMarkdown h2, .stMarkdown h3, .stMarkdown h4, .stMarkdown h5, .stMarkdown h6, .stMarkdown span, .stMarkdown div, .stMarkdown li {
+    color: #1A1A2E !important;
 }
 
-/* Safe slider knob styling */
-.stSlider [role="slider"] {
-    background: var(--fire-red) !important;
-    border: 3px solid var(--bg-white) !important;
-}
-
-/* Safe tab text colors */
-.stTabs [data-baseweb="tab"] {
-    color: var(--text-dark) !important;
-    font-weight: 600 !important;
-}
-
-/* Active tab */
-.stTabs [aria-selected="true"] {
-    background: linear-gradient(
-        135deg,
-        var(--fire-red),
-        var(--fire-orange)
-    ) !important;
-    color: var(--bg-white) !important;
-    border-radius: 12px;
-}
-
-/* ================= STREAMLIT CLOUD FIX ================= */
-
-/* Force all form labels to stay visible */
-label,
-.stSlider label,
-.stRadio label,
-.stSelectbox label {
+/* Force Label Colors (Input fields, sliders, etc) */
+.stTextInput label, .stNumberInput label, .stSelectbox label, .stSlider label, .stRadio label p {
     color: #1A1A2E !important;
     font-weight: 600 !important;
 }
 
-/* SAFE slider styling (knob only) */
-.stSlider [role="slider"] {
-    background: var(--fire-red) !important;
-    border: 3px solid white !important;
-    box-shadow: 0 0 10px rgba(230, 57, 70, 0.4) !important;
-}
-
-/* Ensure tab text is always visible */
-.stTabs [data-baseweb="tab"] {
+/* ================= RADIO BUTTON FIX ================= */
+/* This targets the Radio Button text explicitly */
+.stRadio div[role="radiogroup"] label div[data-testid="stMarkdownContainer"] p {
     color: #1A1A2E !important;
-    font-weight: 600 !important;
+    font-weight: 500 !important;
 }
 
-/* Active tab styling (safe) */
-.stTabs [aria-selected="true"] {
-    background: linear-gradient(135deg, var(--fire-red), var(--fire-orange)) !important;
-    color: white !important;
-    border-radius: 12px;
+/* This targets the actual Radio Button Circle (Unchecked) */
+.stRadio div[role="radiogroup"] label div[role="radio"] {
+    background-color: #FFFFFF !important;
+    border: 2px solid #F77F00 !important;
 }
 
-/* ================= TEXT VISIBILITY FIX ================= */
-
-/* Paragraphs & markdown text only */
-.stMarkdown p,
-.stMarkdown li,
-.stMarkdown span {
-    color: var(--text-dark) !important;
+/* This targets the actual Radio Button Circle (Checked) */
+.stRadio div[role="radiogroup"] label div[role="radio"][aria-checked="true"] {
+    background-color: #F77F00 !important;
+    border-color: #F77F00 !important;
+    color: #FFFFFF !important;
 }
 
-
-/* Headings (Personal Info, Lifestyle, About, etc.) */
-h1, h2, h3, h4, h5, h6 {
-    color: var(--text-dark) !important;
-    font-weight: 700;
+/* Fix for the inner dot in some Streamlit versions */
+.stRadio div[role="radiogroup"] label div[role="radio"] div {
+    background-color: #F77F00 !important;
 }
 
-/* Streamlit markdown section headers */
-[data-testid="stMarkdownContainer"] h1,
-[data-testid="stMarkdownContainer"] h2,
-[data-testid="stMarkdownContainer"] h3,
-[data-testid="stMarkdownContainer"] h4,
-[data-testid="stMarkdownContainer"] h5,
-[data-testid="stMarkdownContainer"] h6 {
-    color: var(--text-dark) !important;
+/* ================= ANALYZE BUTTON FIX ================= */
+/* Targeting the button more specifically to override defaults */
+div.stButton > button {
+    background: linear-gradient(135deg, #E63946, #F77F00) !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    padding: 16px 55px !important;
+    border-radius: 50px !important;
+    font-weight: 700 !important;
+    font-size: 1.15rem !important;
+    box-shadow: 0 12px 35px rgba(230, 57, 70, 0.35) !important;
+    transition: all 0.3s ease !important;
 }
 
-/* Paragraph & list text */
-.stMarkdown p,
-.stMarkdown li {
-    color: var(--text-dark) !important;
-    line-height: 1.7;
+div.stButton > button:hover {
+    transform: translateY(-3px) scale(1.02) !important;
+    box-shadow: 0 18px 45px rgba(230, 57, 70, 0.45) !important;
+    color: #FFFFFF !important;
 }
 
-/* Radio circle (unchecked) */
-.stRadio input[type="radio"] + div {
-    background: var(--bg-white) !important;
-    border: 2px solid var(--fire-orange) !important;
+div.stButton > button p {
+    color: #FFFFFF !important;
 }
 
-/* Radio circle (checked) */
-.stRadio input[type="radio"]:checked + div {
-    background: var(--fire-orange) !important;
-    border-color: var(--fire-orange) !important;
-}
-
-/* Inline markdown text only */
-.stMarkdown span {
-    color: var(--text-dark) !important;
-}
-
-/* Radio (Gender) option TEXT ONLY */
-.stRadio div[role="radiogroup"] label span {
-    color: var(--text-dark) !important;
-    font-weight: 500;
-}
-
-/* Selectbox text */
-.stSelectbox span {
-    color: var(--text-dark) !important;
-}
-
-/* Slider labels & value text */
-.stSlider label,
-.stSlider span {
-    color: var(--text-dark) !important;
-}
-
-/* ================= BUTTON COLOR FIX ================= */
-
-.stButton > button span {
-    color: white !important;
-}
-/* ================= GRAPH TEXT FIX ================= */
+/* ================= GRAPH & TEXT FIXES ================= */
 /* Plotly titles, axis labels, ticks, legend */
-svg text,
-.gtitle,
-.xtitle,
-.ytitle,
-.legend text {
-    fill: var(--text-dark) !important;
+.main-svg text, .gtitle, .xtitle, .ytitle, .legend text {
+    fill: #1A1A2E !important;
+    font-family: 'Segoe UI', sans-serif !important;
 }
-/* ================= TAB WIDTH & ANIMATION FIX ================= */
 
-/* Make tab bar full width */
+/* Tab Bar Styling (Preserved) */
 .stTabs [data-baseweb="tab-list"] {
-    display: flex;
-    width: 100%;
+    background: #FAFAFA;
+    border-radius: 16px;
+    padding: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    gap: 8px;
 }
 
-/* Tabs take equal width */
 .stTabs [data-baseweb="tab"] {
-    flex: 1;
-    text-align: center;
+    color: #1A1A2E !important;
+    font-weight: 600 !important;
 }
 
-/* ================= TAB ANIMATION FIX ================= */
-
-# .stTabs [data-baseweb="tab"] {
-#     padding: 14px 36px !important;   /* ⬅ wider orange box */
-#     border-radius: 14px;
-#     transition: all 0.35s ease;
-# }
-
-/* Selected tab animation */
 .stTabs [aria-selected="true"] {
-    background: linear-gradient(135deg, var(--fire-red), var(--fire-orange)) !important;
+    background: linear-gradient(135deg, #E63946, #F77F00) !important;
     color: white !important;
-    box-shadow: 0 8px 25px rgba(247, 127, 0, 0.35);
-    transform: scale(1.05);
 }
 
-/* Hover effect (smooth) */
-.stTabs [data-baseweb="tab"]:hover {
-    background: rgba(247, 127, 0, 0.15);
-
-
-}
-/* ================= ABOUT PAGE TEXT FIX ================= */
-
-.stMarkdown p {
-    color: var(--text-dark) !important;
-    line-height: 1.7;
-}
 
 
 </style>
@@ -1136,7 +1036,7 @@ with tabs[1]:
             number={"suffix": "%", "font": {"size": 55, "color": "#1A1A2E", "family": "Segoe UI"}},
             title={"text": "Cardiovascular Risk Score", "font": {"size": 22, "color": "#1A1A2E", "family": "Segoe UI"}},
             gauge={
-                "axis": {"range": [0, 100], "tickwidth": 2, "tickcolor": "#1A1A2E"},
+                "axis": {"range": [0, 100], "tickwidth": 2, "tickcolor": "#1A1A2E", "tickfont": {"color": "#1A1A2E"}},
                 "bar": {"color": "#E63946", "thickness": 0.25},
                 "bgcolor": "white",
                 "borderwidth": 2,
@@ -1233,7 +1133,8 @@ with tabs[2]:
                 names=df["cardio"].map({0: "Healthy", 1: "At Risk"}),
                 title="Cardiovascular Disease Distribution",
                 color_discrete_sequence=["#10B981", "#E63946"],
-                hole=0.45
+                hole=0.45,
+                template="plotly_white"
             )
             fig1.update_layout(
                 plot_bgcolor="rgba(255,255,255,1)",
@@ -1252,7 +1153,8 @@ with tabs[2]:
                 color=df["cardio"].map({0: "Healthy", 1: "At Risk"}),
                 nbins=25,
                 title="Age Distribution by Health Status",
-                color_discrete_map={"Healthy": "#F77F00", "At Risk": "#E63946"}
+                color_discrete_map={"Healthy": "#F77F00", "At Risk": "#E63946"},
+                template="plotly_white"
             )
             fig2.update_layout(
                 plot_bgcolor="rgba(255,255,255,1)",
@@ -1271,7 +1173,8 @@ with tabs[2]:
             color=df["cardio"].map({0: "Healthy", 1: "At Risk"}),
             title="Physical Activity Impact on Cardiovascular Health",
             color_discrete_map={"Healthy": "#F77F00", "At Risk": "#E63946"},
-            labels={"x": "Activity Status", "age_years": "Age (Years)", "color": "Status"}
+            labels={"x": "Activity Status", "age_years": "Age (Years)", "color": "Status"},
+            template="plotly_white"
         )
         fig3.update_layout(
             plot_bgcolor="rgba(255,255,255,1)",
@@ -1294,7 +1197,8 @@ with tabs[2]:
             color="cardio",
             barmode="group",
             title="Cholesterol Levels vs Cardiovascular Risk",
-            color_discrete_map={"Healthy": "#F77F00", "At Risk": "#E63946"}
+            color_discrete_map={"Healthy": "#F77F00", "At Risk": "#E63946"},
+            template="plotly_white"
         )
         fig4.update_layout(
             plot_bgcolor="rgba(255,255,255,1)",
