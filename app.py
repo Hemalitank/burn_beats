@@ -628,7 +628,7 @@ footer {visibility: hidden;}
 
 }
 
-/* ================= CLOUD SAFE FIXES ================= */
+/* ================= CLOUD SAFE FIXES (ROOT VARIABLES) ================= */
 
 /* Keep header but transparent */
 [data-testid="stHeader"] {
@@ -640,25 +640,30 @@ label,
 .stSlider label,
 .stRadio label,
 .stSelectbox label {
-    color: #1A1A2E !important;
+    color: var(--text-dark) !important;
     font-weight: 600 !important;
 }
 
 /* Safe slider knob styling */
 .stSlider [role="slider"] {
-    background: #E63946 !important;
-    border: 3px solid white !important;
+    background: var(--fire-red) !important;
+    border: 3px solid var(--bg-white) !important;
 }
 
 /* Safe tab text colors */
 .stTabs [data-baseweb="tab"] {
-    color: #1A1A2E !important;
+    color: var(--text-dark) !important;
     font-weight: 600 !important;
 }
 
+/* Active tab */
 .stTabs [aria-selected="true"] {
-    background: linear-gradient(135deg, #E63946, #F77F00) !important;
-    color: white !important;
+    background: linear-gradient(
+        135deg,
+        var(--fire-red),
+        var(--fire-orange)
+    ) !important;
+    color: var(--bg-white) !important;
     border-radius: 12px;
 }
 
@@ -693,14 +698,6 @@ label,
     border-radius: 12px;
 }
 
-/* ===== CLOUD LABEL FIX (NO UI CHANGE) ===== */
-label,
-.stSlider label,
-.stRadio label,
-.stSelectbox label {
-    color: var(--text-dark) !important;
-}
-
 /* ================= TEXT VISIBILITY FIX ================= */
 
 /* Paragraphs & markdown text only */
@@ -713,18 +710,30 @@ label,
 
 /* Headings (Personal Info, Lifestyle, About, etc.) */
 h1, h2, h3, h4, h5, h6 {
-    color: var(--text-dark);
+    color: var(--text-dark) !important;
     font-weight: 700;
 }
 
-/* Radio label text */
-.stRadio label span {
+/* Streamlit markdown section headers */
+[data-testid="stMarkdownContainer"] h1,
+[data-testid="stMarkdownContainer"] h2,
+[data-testid="stMarkdownContainer"] h3,
+[data-testid="stMarkdownContainer"] h4,
+[data-testid="stMarkdownContainer"] h5,
+[data-testid="stMarkdownContainer"] h6 {
     color: var(--text-dark) !important;
+}
+
+/* Paragraph & list text */
+.stMarkdown p,
+.stMarkdown li {
+    color: var(--text-dark) !important;
+    line-height: 1.7;
 }
 
 /* Radio circle (unchecked) */
 .stRadio input[type="radio"] + div {
-    background: white !important;
+    background: var(--bg-white) !important;
     border: 2px solid var(--fire-orange) !important;
 }
 
@@ -734,21 +743,40 @@ h1, h2, h3, h4, h5, h6 {
     border-color: var(--fire-orange) !important;
 }
 
+/* Inline markdown text only */
+.stMarkdown span {
+    color: var(--text-dark) !important;
+}
+
+/* Radio (Gender) option TEXT ONLY */
+.stRadio div[role="radiogroup"] label span {
+    color: var(--text-dark) !important;
+    font-weight: 500;
+}
+
+/* Selectbox text */
+.stSelectbox span {
+    color: var(--text-dark) !important;
+}
+
+/* Slider labels & value text */
+.stSlider label,
+.stSlider span {
+    color: var(--text-dark) !important;
+}
+
 /* ================= BUTTON COLOR FIX ================= */
 
 .stButton > button span {
     color: white !important;
 }
-
 /* ================= GRAPH TEXT FIX ================= */
-
-/* Plotly titles & axis labels */
-.gtitle, .xtitle, .ytitle, .legend text {
-    fill: var(--text-dark) !important;
-}
-
-/* Plotly axis + ticks + legend */
-svg text {
+/* Plotly titles, axis labels, ticks, legend */
+svg text,
+.gtitle,
+.xtitle,
+.ytitle,
+.legend text {
     fill: var(--text-dark) !important;
 }
 /* ================= TAB WIDTH & ANIMATION FIX ================= */
@@ -784,8 +812,9 @@ svg text {
 /* Hover effect (smooth) */
 .stTabs [data-baseweb="tab"]:hover {
     background: rgba(247, 127, 0, 0.15);
-}
 
+
+}
 /* ================= ABOUT PAGE TEXT FIX ================= */
 
 .stMarkdown p {
