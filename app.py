@@ -69,14 +69,6 @@ footer {visibility: hidden;}
     padding-top: 0.5rem !important;
 }
 
-/* ===== REMOVE STREAMLIT HEADER SAFELY ===== */
-[data-testid="stHeader"] {
-    height: 0px !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    overflow: hidden !important;
-    background: transparent !important;
-}
 .main-header {
     z-index: 999;
 }
@@ -320,29 +312,29 @@ footer {visibility: hidden;}
     letter-spacing: -0.5px;
 }
 
-/* ===== INPUT STYLING ===== */
-.stSlider > div > div > div {
-    background: linear-gradient(90deg, var(--fire-red), var(--fire-orange), var(--fire-yellow)) !important;
-}
+# /* ===== INPUT STYLING ===== */
+# .stSlider > div > div > div {
+#     background: linear-gradient(90deg, var(--fire-red), var(--fire-orange), var(--fire-yellow)) !important;
+# }
 
-.stSlider > div > div > div > div {
-    background: var(--fire-red) !important;
-    border: 3px solid white !important;
-    box-shadow: 0 0 12px rgba(230, 57, 70, 0.4) !important;
-}
+# .stSlider > div > div > div > div {
+#     background: var(--fire-red) !important;
+#     border: 3px solid white !important;
+#     box-shadow: 0 0 12px rgba(230, 57, 70, 0.4) !important;
+# }
 
-.stRadio > div {
-    background: #FAFAFA;
-    padding: 12px 18px;
-    border-radius: 12px;
-    border: 1px solid rgba(230, 57, 70, 0.1);
-}
+# .stRadio > div {
+#     background: #FAFAFA;
+#     padding: 12px 18px;
+#     border-radius: 12px;
+#     border: 1px solid rgba(230, 57, 70, 0.1);
+# }
 
-.stSelectbox > div > div {
-    background: #FAFAFA !important;
-    border: 1px solid rgba(230, 57, 70, 0.15) !important;
-    border-radius: 12px !important;
-}
+# .stSelectbox > div > div {
+#     background: #FAFAFA !important;
+#     border: 1px solid rgba(230, 57, 70, 0.15) !important;
+#     border-radius: 12px !important;
+# }
 
 /* ===== SUBMIT BUTTON ===== */
 .stButton > button {
@@ -570,13 +562,13 @@ footer {visibility: hidden;}
     border: 1px solid rgba(0,0,0,0.05);
 }
 
-.stTabs [data-baseweb="tab"] {
-    border-radius: 12px;
-    padding: 14px 28px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    font-size: 0.95rem;
-}
+# .stTabs [data-baseweb="tab"] {
+#     border-radius: 12px;
+#     padding: 14px 28px;
+#     font-weight: 600;
+#     transition: all 0.3s ease;
+#     font-size: 0.95rem;
+# }
 
 .stTabs [aria-selected="true"] {
     background: linear-gradient(135deg, var(--fire-red), var(--fire-orange)) !important;
@@ -664,6 +656,50 @@ footer {visibility: hidden;}
     100% { width: 100%; }
 
 }
+/* ===== CLOUD LABEL FIX (NO UI CHANGE) ===== */
+label,
+.stSlider label,
+.stRadio label,
+.stSelectbox label {
+    color: var(--text-dark) !important;
+}
+
+/* ===== CLOUD TAB TEXT FIX (NO UI CHANGE) ===== */
+.stTabs [data-baseweb="tab"] {
+    color: var(--text-dark) !important;
+}
+
+/* ================= STREAMLIT CLOUD FIX ================= */
+
+/* Force all form labels to stay visible */
+label,
+.stSlider label,
+.stRadio label,
+.stSelectbox label {
+    color: #1A1A2E !important;
+    font-weight: 600 !important;
+}
+
+/* SAFE slider styling (knob only) */
+.stSlider [role="slider"] {
+    background: var(--fire-red) !important;
+    border: 3px solid white !important;
+    box-shadow: 0 0 10px rgba(230, 57, 70, 0.4) !important;
+}
+
+/* Ensure tab text is always visible */
+.stTabs [data-baseweb="tab"] {
+    color: #1A1A2E !important;
+    font-weight: 600 !important;
+}
+
+/* Active tab styling (safe) */
+.stTabs [aria-selected="true"] {
+    background: linear-gradient(135deg, var(--fire-red), var(--fire-orange)) !important;
+    color: white !important;
+    border-radius: 12px;
+}
+
 </style>
 """, unsafe_allow_html=True)
 # =============================================================================
