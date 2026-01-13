@@ -703,6 +703,39 @@ h1, h2, h3, h4, h5, h6 {
     fill: var(--text-dark) !important;
 }
 
+/* ================= PREDICTION GRAPH RANGE FIX ================= */
+
+/* Plotly graph main title */
+.gtitle {
+    fill: var(--text-dark) !important;
+    font-weight: 700 !important;
+}
+
+/* X & Y axis titles */
+.xtitle,
+.ytitle {
+    fill: var(--text-dark) !important;
+    font-weight: 600 !important;
+}
+
+/* Axis tick labels (ranges like 0–10k, Risk levels, etc.) */
+.xtick text,
+.ytick text {
+    fill: var(--text-dark) !important;
+    font-weight: 500 !important;
+}
+
+/* Legend text (Risk / No Risk / Active / Inactive) */
+.legend text {
+    fill: var(--text-dark) !important;
+    font-weight: 600 !important;
+}
+
+/* Colorbar scale text (if probability/risk scale exists) */
+.colorbar text {
+    fill: var(--text-dark) !important;
+}
+
 /* ================= TAB WIDTH & ANIMATION FIX ================= */
 
 .stTabs [data-baseweb="tab"] {
@@ -728,7 +761,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Light button background + DARK text */
 .stButton > button {
-    color: var(--text-dark) !important;
+    color: var(--bg-white) !important;
 }
 
 /* Ensure inner text also stays dark */
@@ -766,18 +799,36 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600 !important;
 }
 
-/* ===== RADIO BUTTONS FIX ===== */
-/* Remove default dark background and force light theme */
-div[data-testid="stRadio"] > div {
-    background-color: #FFFFFF !important;
-    padding: 10px 15px;
+/* ================= RADIO BUTTON (LIGHT MODE FIX) ================= */
+
+/* Radio outer container */
+.stRadio > div {
+    background: var(--bg-white) !important;
     border-radius: 12px;
-    border: 1px solid rgba(230, 57, 70, 0.2);
+    padding: 12px 18px;
+    border: 1px solid rgba(230, 57, 70, 0.12);
 }
 
-/* Force Radio button text labels to be dark */
-div[data-testid="stRadio"] label {
-    color: #1A1A2E !important;
+/* Radio option text (Gender, Yes/No, etc.) */
+.stRadio div[role="radiogroup"] label span {
+    color: var(--text-dark) !important;
+    font-weight: 500;
+}
+
+/* Radio circle (unchecked) */
+.stRadio input[type="radio"] {
+    background-color: var(--bg-white) !important;
+    accent-color: var(--fire-red) !important;   /* selected dot color */
+}
+
+/* Radio checked state (prevent dark fill) */
+.stRadio input[type="radio"]:checked {
+    background-color: var(--bg-white) !important;
+}
+
+/* Prevent Streamlit Cloud dark override */
+.stRadio label {
+    color: var(--text-dark) !important;
 }
 
 /* ================= SELECTBOX LIGHT FIX ================= */
@@ -794,63 +845,6 @@ div[data-testid="stRadio"] label {
     color: #1A1A2E !important;
 }
 
-/* ===== ANALYZE BUTTON FIX ===== */
-/* Light background with dark text as requested */
-div.stButton > button {
-    background-color: #FFF7ED !important;
-    color: #1A1A2E !important;
-    border: 1px solid var(--fire-orange) !important;
-    font-weight: 700 !important;
-    box-shadow: 0 8px 20px rgba(230, 57, 70, 0.15) !important;
-}
-
-div.stButton > button:hover {
-    background-color: var(--fire-orange) !important;
-    color: white !important;
-}
-
-/* ===== GRAPH TEXT & RANGE VISIBILITY FIX ===== */
-/* Forces Plotly titles, axis labels, and ranges to be dark/visible */
-.js-plotly-plot .plotly .gtitle, 
-.js-plotly-plot .plotly .xtitle, 
-.js-plotly-plot .plotly .ytitle, 
-.js-plotly-plot .plotly .tick text,
-.js-plotly-plot .plotly .legendtext {
-    fill: #1A1A2E !important;
-    font-weight: 600 !important;
-}
-/* ================= PREDICTION GRAPH RANGE FIX ================= */
-
-/* Plotly main title */
-.gtitle {
-    fill: #1A1A2E !important;
-    font-weight: 700 !important;
-}
-
-/* X & Y axis titles */
-.xtitle,
-.ytitle {
-    fill: #1A1A2E !important;
-    font-weight: 600 !important;
-}
-
-/* Axis tick labels (ranges like 0–10k, Risk levels, etc.) */
-.xtick text,
-.ytick text {
-    fill: #1A1A2E !important;
-    font-weight: 500 !important;
-}
-
-/* Legend text (Risk / No Risk / Active / Inactive) */
-.legend text {
-    fill: #1A1A2E !important;
-    font-weight: 600 !important;
-}
-
-/* Colorbar (if probability / risk scale is used) */
-.colorbar text {
-    fill: #1A1A2E !important;
-}
 
 
 /* ===== TAB WIDTH & TEXT FIX ===== */
@@ -865,23 +859,6 @@ div.stButton > button:hover {
     color: #1A1A2E !important;
     font-weight: 600;
 }
-
-/* ===== GLOBAL VISIBILITY FIXES ===== */
-.stApp {
-    background: #FFFFFF !important;
-}
-
-/* Force all standard text and markdown to be dark and visible */
-p, span, label, .stMarkdown, [data-testid="stMarkdownContainer"] p {
-    color: #1A1A2E !important;
-}
-
-/* Fix for Heading visibility (Personal Information, Medical Vitals, etc.) */
-h1, h2, h3, h4, h5, h6 {
-    color: #1A1A2E !important;
-    font-weight: 700 !important;
-}
-
 
 
 /* ================= ABOUT PAGE TEXT FIX ================= */
