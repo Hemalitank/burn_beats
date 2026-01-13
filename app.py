@@ -804,42 +804,62 @@ svg text,
     fill: var(--text-dark) !important;
 }
 
-/* ================= ANALYZE BUTTON FIX ================= */
+/* ================= ANALYZE BUTTON FINAL FIX ================= */
 
+/* Button container — CENTER the button */
+.stButton {
+    display: flex !important;
+    justify-content: center !important;
+}
+
+/* Base button */
 .stButton > button {
-    background: var(--bg-white) !important;   /* light */
-    color: var(--text-dark) !important;        /* dark text */
+    background-color: var(--bg-white) !important;   /* force white */
+    background-image: none !important;              /* kill dark gradients */
+    color: var(--text-dark) !important;              /* dark text */
     border: 1px solid rgba(230, 57, 70, 0.25) !important;
     box-shadow: 0 8px 20px rgba(230, 57, 70, 0.2) !important;
+
+    font-weight: 700 !important;
+    padding: 14px 48px !important;
+    border-radius: 50px !important;
+
+    text-align: center !important;
 }
 
-.stButton > button span {
+/* Inner text (Streamlit sometimes wraps text in span/div) */
+.stButton > button span,
+.stButton > button p {
     color: var(--text-dark) !important;
-    font-weight: 700;
+    font-weight: 700 !important;
 }
 
+/* Hover */
 .stButton > button:hover {
+    background-color: var(--bg-white) !important;
+    background-image: none !important;
     transform: translateY(-3px) scale(1.02) !important;
     box-shadow: 0 18px 45px rgba(230, 57, 70, 0.45) !important;
     color: var(--text-dark) !important;
-    background: var(--bg-white) !important;
 }
 
+/* Active (click) */
 .stButton > button:active {
+    background-color: var(--bg-white) !important;
+    background-image: none !important;
     transform: translateY(-1px) scale(0.98) !important;
     box-shadow: 0 6px 15px rgba(230, 57, 70, 0.3) !important;
     color: var(--text-dark) !important;
-    background: var(--bg-white) !important;
 }
 
+/* Disabled */
 .stButton > button:disabled {
-    transform: translateY(-1px) scale(0.98) !important;
-    box-shadow: 0 6px 15px rgba(230, 57, 70, 0.3) !important;
+    background-color: var(--bg-white) !important;
+    background-image: none !important;
     color: var(--text-dark) !important;
-    background: var(--bg-white) !important;
+    opacity: 0.6 !important;
 }
 
-</style>
 """, unsafe_allow_html=True)
 # =============================================================================
 # LOAD MODEL & DATA
