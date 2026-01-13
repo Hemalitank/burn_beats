@@ -766,25 +766,18 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600 !important;
 }
 
-/* ================= RADIO BUTTON FIX ================= */
-
-.stRadio > div {
-    background: #FFFFFF !important;
-    border-radius: 12px;
-    padding: 12px 18px;
-    border: 1px solid rgba(230, 57, 70, 0.15);
-}
-
-/* Radio text */
-.stRadio div[role="radiogroup"] label span {
-    color: #1A1A2E !important;
-    font-weight: 500;
-}
-
-/* Radio circle */
-.stRadio input[type="radio"] {
+/* ===== RADIO BUTTONS FIX ===== */
+/* Remove default dark background and force light theme */
+div[data-testid="stRadio"] > div {
     background-color: #FFFFFF !important;
-    accent-color: #E63946 !important;
+    padding: 10px 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(230, 57, 70, 0.2);
+}
+
+/* Force Radio button text labels to be dark */
+div[data-testid="stRadio"] label {
+    color: #1A1A2E !important;
 }
 
 /* ================= SELECTBOX LIGHT FIX ================= */
@@ -801,20 +794,31 @@ h1, h2, h3, h4, h5, h6 {
     color: #1A1A2E !important;
 }
 
-/* ================= ANALYZE BUTTON FIX ================= */
-
-.stButton > button {
-    background: #FFF7ED !important;   /* light */
-    color: #1A1A2E !important;        /* dark text */
-    border: 1px solid rgba(230, 57, 70, 0.25) !important;
-    box-shadow: 0 8px 20px rgba(230, 57, 70, 0.2) !important;
-}
-
-.stButton > button span {
+/* ===== ANALYZE BUTTON FIX ===== */
+/* Light background with dark text as requested */
+div.stButton > button {
+    background-color: #FFF7ED !important;
     color: #1A1A2E !important;
-    font-weight: 700;
+    border: 1px solid var(--fire-orange) !important;
+    font-weight: 700 !important;
+    box-shadow: 0 8px 20px rgba(230, 57, 70, 0.15) !important;
 }
 
+div.stButton > button:hover {
+    background-color: var(--fire-orange) !important;
+    color: white !important;
+}
+
+/* ===== GRAPH TEXT & RANGE VISIBILITY FIX ===== */
+/* Forces Plotly titles, axis labels, and ranges to be dark/visible */
+.js-plotly-plot .plotly .gtitle, 
+.js-plotly-plot .plotly .xtitle, 
+.js-plotly-plot .plotly .ytitle, 
+.js-plotly-plot .plotly .tick text,
+.js-plotly-plot .plotly .legendtext {
+    fill: #1A1A2E !important;
+    font-weight: 600 !important;
+}
 /* ================= PREDICTION GRAPH RANGE FIX ================= */
 
 /* Plotly main title */
@@ -861,6 +865,23 @@ h1, h2, h3, h4, h5, h6 {
     color: #1A1A2E !important;
     font-weight: 600;
 }
+
+/* ===== GLOBAL VISIBILITY FIXES ===== */
+.stApp {
+    background: #FFFFFF !important;
+}
+
+/* Force all standard text and markdown to be dark and visible */
+p, span, label, .stMarkdown, [data-testid="stMarkdownContainer"] p {
+    color: #1A1A2E !important;
+}
+
+/* Fix for Heading visibility (Personal Information, Medical Vitals, etc.) */
+h1, h2, h3, h4, h5, h6 {
+    color: #1A1A2E !important;
+    font-weight: 700 !important;
+}
+
 
 
 /* ================= ABOUT PAGE TEXT FIX ================= */
