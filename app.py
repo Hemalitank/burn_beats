@@ -702,10 +702,7 @@ label,
 
 /* ================= TEXT VISIBILITY FIX ================= */
 
-/* General text */
-p, span, li, div {
-    color: var(--text-dark);
-}
+
 
 /* Headings (Personal Info, Lifestyle, About, etc.) */
 h1, h2, h3, h4, h5, h6 {
@@ -767,6 +764,163 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.7;
 }
 
+/* ================= ROOT VARIABLES ================= */
+:root {
+    --fire-red: #E63946;
+    --fire-orange: #F77F00;
+    --fire-yellow: #FCBF49;
+    --fire-gold: #FFD700;
+    --bg-white: #FFFFFF;
+    --text-dark: #1A1A2E;
+    --text-muted: #6B7280;
+    --card-shadow: 0 20px 60px rgba(230, 57, 70, 0.12);
+    --glow-orange: 0 0 40px rgba(247, 127, 0, 0.3);
+}
+
+/* ================= GLOBAL ================= */
+.stApp {
+    background: #FFFFFF !important;
+    font-family: 'Segoe UI', 'Inter', sans-serif;
+}
+
+[data-testid="stAppViewContainer"] {
+    background: #FFFFFF !important;
+    padding-top: 0 !important;
+}
+
+.block-container {
+    padding-top: 0.5rem !important;
+}
+
+#MainMenu,
+footer {
+    visibility: hidden;
+}
+
+/* ================= HEADINGS (Personal Info, Lifestyle, About, etc.) ================= */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+/* Streamlit section headers */
+[data-testid="stMarkdownContainer"] h1,
+[data-testid="stMarkdownContainer"] h2,
+[data-testid="stMarkdownContainer"] h3 {
+    color: var(--text-dark) !important;
+}
+
+/* ================= MARKDOWN TEXT ================= */
+.stMarkdown p {
+    color: var(--text-dark) !important;
+    line-height: 1.7;
+}
+
+.stMarkdown li,
+.stMarkdown span {
+    color: var(--text-dark) !important;
+}
+
+/* ================= RADIO (GENDER) FIX ================= */
+.stRadio div[role="radiogroup"] label span {
+    color: var(--text-dark) !important;
+    font-weight: 500;
+}
+
+/* Radio circle (unchecked) */
+.stRadio input[type="radio"] + div {
+    background: #FFFFFF !important;
+    border: 2px solid var(--fire-orange) !important;
+}
+
+/* Radio circle (checked) */
+.stRadio input[type="radio"]:checked + div {
+    background: var(--fire-orange) !important;
+    border-color: var(--fire-orange) !important;
+}
+
+/* ================= SELECTBOX & SLIDER TEXT ================= */
+.stSelectbox span,
+.stSlider span,
+.stSlider label {
+    color: var(--text-dark) !important;
+}
+
+/* Slider knob only (safe) */
+.stSlider [role="slider"] {
+    background: var(--fire-red) !important;
+    border: 3px solid white !important;
+    box-shadow: 0 0 10px rgba(230, 57, 70, 0.4) !important;
+}
+
+/* ================= BUTTON FIX ================= */
+.stButton > button {
+    background: linear-gradient(135deg, var(--fire-red), var(--fire-orange)) !important;
+    color: white !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    border-radius: 50px !important;
+    border: none !important;
+}
+
+.stButton > button span {
+    color: white !important;
+}
+
+/* ================= GRAPH TEXT FIX ================= */
+/* Plotly titles, axis labels, ticks, legends */
+svg text,
+.gtitle,
+.xtitle,
+.ytitle,
+.legend text {
+    fill: var(--text-dark) !important;
+}
+
+/* ================= TAB WIDTH & ANIMATION FIX ================= */
+
+/* Full-width tab bar */
+.stTabs [data-baseweb="tab-list"] {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+    background: #FAFAFA;
+    padding: 8px;
+    border-radius: 16px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Tabs fit container equally */
+.stTabs [data-baseweb="tab"] {
+    flex: 1;
+    text-align: center;
+    padding: 14px 36px !important;   /* wider orange box */
+    border-radius: 14px;
+    font-weight: 600;
+    transition: all 0.35s ease;
+    color: var(--text-dark) !important;
+}
+
+/* Selected tab animation */
+.stTabs [aria-selected="true"] {
+    background: linear-gradient(135deg, var(--fire-red), var(--fire-orange)) !important;
+    color: white !important;
+    box-shadow: 0 8px 25px rgba(247, 127, 0, 0.35);
+    transform: scale(1.05);
+}
+
+/* Hover effect */
+.stTabs [data-baseweb="tab"]:hover {
+    background: rgba(247, 127, 0, 0.15);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .stTabs [data-baseweb="tab"] {
+        padding: 12px 0 !important;
+        font-size: 0.9rem;
+    }
+}
 </style>
 """, unsafe_allow_html=True)
 # =============================================================================
