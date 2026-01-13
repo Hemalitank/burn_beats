@@ -312,6 +312,30 @@ footer {visibility: hidden;}
     letter-spacing: -0.5px;
 }
 
+/* ===== INPUT STYLING ===== */
+.stSlider > div > div > div {
+    background: linear-gradient(90deg, var(--fire-red), var(--fire-orange), var(--fire-yellow)) !important;
+}
+
+.stSlider > div > div > div > div {
+    background: var(--fire-red) !important;
+    border: 3px solid white !important;
+    box-shadow: 0 0 12px rgba(230, 57, 70, 0.4) !important;
+}
+
+.stRadio > div {
+    background: #FAFAFA;
+    padding: 12px 18px;
+    border-radius: 12px;
+    border: 1px solid rgba(230, 57, 70, 0.1);
+}
+
+.stSelectbox > div > div {
+    background: #FAFAFA !important;
+    border: 1px solid rgba(230, 57, 70, 0.15) !important;
+    border-radius: 12px !important;
+}
+
 /* ===== SUBMIT BUTTON ===== */
 .stButton > button {
     background: linear-gradient(135deg, var(--fire-red), var(--fire-orange)) !important;
@@ -538,6 +562,14 @@ footer {visibility: hidden;}
     border: 1px solid rgba(0,0,0,0.05);
 }
 
+.stTabs [data-baseweb="tab"] {
+    border-radius: 12px;
+    padding: 14px 28px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
 .stTabs [aria-selected="true"] {
     background: linear-gradient(135deg, var(--fire-red), var(--fire-orange)) !important;
     color: white !important;
@@ -624,250 +656,6 @@ footer {visibility: hidden;}
     100% { width: 100%; }
 
 }
-/* ===== CLOUD LABEL FIX (NO UI CHANGE) ===== */
-label,
-.stSlider label,
-.stRadio label,
-.stSelectbox label {
-    color: var(--text-dark) !important;
-}
-
-/* ===== CLOUD TAB TEXT FIX (NO UI CHANGE) ===== */
-.stTabs [data-baseweb="tab"] {
-    color: var(--text-dark) !important;
-}
-
-/* ================= STREAMLIT CLOUD FIX ================= */
-
-/* Force all form labels to stay visible */
-label,
-.stSlider label,
-.stRadio label,
-.stSelectbox label {
-    color: #1A1A2E !important;
-    font-weight: 600 !important;
-}
-
-/* SAFE slider styling (knob only) */
-.stSlider [role="slider"] {
-    background: var(--fire-red) !important;
-    border: 3px solid white !important;
-    box-shadow: 0 0 10px rgba(230, 57, 70, 0.4) !important;
-}
-
-/* Ensure tab text is always visible */
-.stTabs [data-baseweb="tab"] {
-    color: #1A1A2E !important;
-    font-weight: 600 !important;
-}
-
-/* Active tab styling (safe) */
-.stTabs [aria-selected="true"] {
-    background: linear-gradient(135deg, var(--fire-red), var(--fire-orange)) !important;
-    color: white !important;
-    border-radius: 12px;
-}
-
-/* ================= TEXT VISIBILITY FIX ================= */
-
-
-/* Headings (Personal Info, Lifestyle, About, etc.) */
-h1, h2, h3, h4, h5, h6 {
-    color: var(--text-dark);
-    font-weight: 700;
-}
-
-/* Streamlit section headers */
-[data-testid="stMarkdownContainer"] h1,
-[data-testid="stMarkdownContainer"] h2,
-[data-testid="stMarkdownContainer"] h3 {
-    color: var(--text-dark) !important;
-}
-
-/* Radio (Gender) options */
-.stRadio div[role="radiogroup"] label span {
-    color: var(--text-dark) !important;
-    font-weight: 500;
-}
-
-/* Selectbox & slider text */
-.stSelectbox span,
-.stSlider span {
-    color: var(--text-dark) !important;
-}
-
-/* ================= GRAPH TEXT FIX ================= */
-
-/* Plotly titles & axis labels */
-.gtitle, .xtitle, .ytitle, .legend text {
-    fill: var(--text-dark) !important;
-}
-
-/* ================= PREDICTION GRAPH RANGE FIX ================= */
-
-/* Plotly graph main title */
-.gtitle {
-    fill: var(--text-dark) !important;
-    font-weight: 700 !important;
-}
-
-/* X & Y axis titles */
-.xtitle,
-.ytitle {
-    fill: var(--text-dark) !important;
-    font-weight: 600 !important;
-}
-
-/* Axis tick labels (ranges like 0–10k, Risk levels, etc.) */
-.xtick text,
-.ytick text {
-    fill: var(--text-dark) !important;
-    font-weight: 500 !important;
-}
-
-/* Legend text (Risk / No Risk / Active / Inactive) */
-.legend text {
-    fill: var(--text-dark) !important;
-    font-weight: 600 !important;
-}
-
-/* Colorbar scale text (if probability/risk scale exists) */
-.colorbar text {
-    fill: var(--text-dark) !important;
-}
-
-/* ================= TAB WIDTH & ANIMATION FIX ================= */
-
-.stTabs [data-baseweb="tab"] {
-    padding: 14px 36px !important;   /* ⬅ wider orange box */
-    border-radius: 14px;
-    transition: all 0.35s ease;
-}
-
-/* Selected tab animation */
-.stTabs [aria-selected="true"] {
-    background: linear-gradient(135deg, var(--fire-red), var(--fire-orange)) !important;
-    color: white !important;
-    box-shadow: 0 8px 25px rgba(247, 127, 0, 0.35);
-    transform: scale(1.05);
-}
-
-/* Hover effect (smooth) */
-.stTabs [data-baseweb="tab"]:hover {
-    background: rgba(247, 127, 0, 0.15);
-}
-
-/* ================= ANALYZE BUTTON TEXT FIX ================= */
-
-/* Light button background + DARK text */
-.stButton > button {
-    color: var(--bg-white) !important;
-}
-
-/* Ensure inner text also stays dark */
-.stButton > button span {
-    color: var(--text-dark) !important;
-    font-weight: 700;
-}
-
-
-/* ================= GRAPH TEXT VISIBILITY FIX ================= */
-
-/* Plotly title */
-.gtitle {
-    fill: #1A1A2E !important;
-    font-weight: 700 !important;
-}
-
-/* X & Y axis titles */
-.xtitle,
-.ytitle {
-    fill: #1A1A2E !important;
-    font-weight: 600 !important;
-}
-
-/* Axis tick labels (numbers & categories) */
-.xtick text,
-.ytick text {
-    fill: #1A1A2E !important;
-    font-weight: 500 !important;
-}
-
-/* Legend text (Active / Inactive / etc.) */
-.legend text {
-    fill: #1A1A2E !important;
-    font-weight: 600 !important;
-}
-
-/* ================= RADIO BUTTON (LIGHT MODE FIX) ================= */
-
-/* Radio outer container */
-.stRadio > div {
-    background: var(--bg-white) !important;
-    border-radius: 12px;
-    padding: 12px 18px;
-    border: 1px solid rgba(230, 57, 70, 0.12);
-}
-
-/* Radio option text (Gender, Yes/No, etc.) */
-.stRadio div[role="radiogroup"] label span {
-    color: var(--text-dark) !important;
-    font-weight: 500;
-}
-
-/* Radio circle (unchecked) */
-.stRadio input[type="radio"] {
-    background-color: var(--bg-white) !important;
-    accent-color: var(--fire-red) !important;   /* selected dot color */
-}
-
-/* Radio checked state (prevent dark fill) */
-.stRadio input[type="radio"]:checked {
-    background-color: var(--bg-white) !important;
-}
-
-/* Prevent Streamlit Cloud dark override */
-.stRadio label {
-    color: var(--text-dark) !important;
-}
-
-/* ================= SELECTBOX LIGHT FIX ================= */
-
-.stSelectbox > div > div {
-    background: #FFFFFF !important;
-    color: #1A1A2E !important;
-    border-radius: 12px !important;
-    border: 1px solid rgba(230, 57, 70, 0.15) !important;
-}
-
-/* Dropdown text */
-.stSelectbox span {
-    color: #1A1A2E !important;
-}
-
-
-
-/* ===== TAB WIDTH & TEXT FIX ===== */
-.stTabs [data-baseweb="tab-list"] {
-    display: flex;
-}
-
-.stTabs [data-baseweb="tab"] {
-    flex: 1;
-    text-align: center;
-    padding: 14px 0 !important;
-    color: #1A1A2E !important;
-    font-weight: 600;
-}
-
-
-/* ================= ABOUT PAGE TEXT FIX ================= */
-
-.stMarkdown p {
-    color: var(--text-dark) !important;
-    line-height: 1.7;
-}
-
 </style>
 """, unsafe_allow_html=True)
 # =============================================================================
