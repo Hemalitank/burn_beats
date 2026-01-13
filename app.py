@@ -678,45 +678,67 @@ footer {visibility: hidden;}
     color: #1A1A2E !important;
     font-weight: 700 !important;
 }
-/* ================= RADIO BUTTON FINAL DESIGN ================= */
+/* ================= RADIO BUTTON – STREAMLIT CLOUD SAFE ================= */
 
-/* Native radio fallback (browser level) */
-.stRadio input[type="radio"] {
-    accent-color: var(--fire-orange) !important;
-    background-color: var(--bg-white) !important;
-    filter: none !important;
-}
+# /* Native browser fallback */
+# .stRadio input[type="radio"] {
+#     accent-color: var(--fire-orange) !important;
+# }
 
-/* Streamlit custom radio – outer circle */
-div[role="radiogroup"] > label > div:first-child {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background-color: var(--bg-white) !important;      /* unselected = white */
-    border: 2px solid var(--fire-orange) !important;   /* orange ring */
-    position: relative;
-}
+# /* UNCHECKED radio (default) */
+# .stRadio div[role="radiogroup"] label > div:first-child {
+#     width: 18px;
+#     height: 18px;
+#     border-radius: 50%;
+#     background-color: var(--bg-white) !important;
+#     border: 2px solid var(--text-muted) !important;
+#     position: relative;
+# }
+
+# /* CHECKED radio – Streamlit applies this attribute reliably */
+# .stRadio div[role="radiogroup"] label[data-selected="true"] > div:first-child {
+#     background: linear-gradient(
+#         135deg,
+#         var(--fire-red),
+#         var(--fire-orange)
+#     ) !important;
+#     border-color: var(--fire-red) !important;
+# }
+
+# /* Inner white dot (checked only) */
+# .stRadio div[role="radiogroup"] label[data-selected="true"] > div:first-child::after {
+#     content: "";
+#     width: 8px;
+#     height: 8px;
+#     background-color: var(--bg-white);
+#     border-radius: 50%;
+#     position: absolute;
+#     top: 50%;
+#     left: 50%;
+#     transform: translate(-50%, -50%);
+# }
+
+# /* Radio text */
+# .stRadio div[role="radiogroup"] label p {
+#     color: var(--text-dark) !important;
+#     font-weight: 500 !important;
+# }
 
 
-/* Inner white dot (checked only) */
-div[role="radiogroup"] > label > div:first-child[aria-checked="true"]::after {
-    content: "";
-    width: 8px;
-    height: 8px;
-    background-color: var(--bg-white);
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/* Radio text */
-div[role="radiogroup"] label div[data-testid="stMarkdownContainer"] p {
+.stRadio label span {
     color: var(--text-dark) !important;
-    font-weight: 500 !important;
+    font-weight: 500;
 }
 
+.stRadio input[type="radio"] + div {
+    background: white !important;
+ 
+}
+
+.stRadio input[type="radio"]:checked + div {
+    background: var(--bg-white) !important;
+    
+}
 
 /* ================= SELECTBOX FIX (AGGRESSIVE) ================= */
 /* Force the container to be white */
