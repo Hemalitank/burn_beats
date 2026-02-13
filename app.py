@@ -678,66 +678,20 @@ footer {visibility: hidden;}
     color: #1A1A2E !important;
     font-weight: 700 !important;
 }
-/* ================= RADIO BUTTON – STREAMLIT CLOUD SAFE ================= */
-
-# /* Native browser fallback */
-# .stRadio input[type="radio"] {
-#     accent-color: var(--fire-orange) !important;
-# }
-
-# /* UNCHECKED radio (default) */
-# .stRadio div[role="radiogroup"] label > div:first-child {
-#     width: 18px;
-#     height: 18px;
-#     border-radius: 50%;
-#     background-color: var(--bg-white) !important;
-#     border: 2px solid var(--text-muted) !important;
-#     position: relative;
-# }
-
-# /* CHECKED radio – Streamlit applies this attribute reliably */
-# .stRadio div[role="radiogroup"] label[data-selected="true"] > div:first-child {
-#     background: linear-gradient(
-#         135deg,
-#         var(--fire-red),
-#         var(--fire-orange)
-#     ) !important;
-#     border-color: var(--fire-red) !important;
-# }
-
-# /* Inner white dot (checked only) */
-# .stRadio div[role="radiogroup"] label[data-selected="true"] > div:first-child::after {
-#     content: "";
-#     width: 8px;
-#     height: 8px;
-#     background-color: var(--bg-white);
-#     border-radius: 50%;
-#     position: absolute;
-#     top: 50%;
-#     left: 50%;
-#     transform: translate(-50%, -50%);
-# }
-
-# /* Radio text */
-# .stRadio div[role="radiogroup"] label p {
-#     color: var(--text-dark) !important;
-#     font-weight: 500 !important;
-# }
-
-
-.stRadio label span {
+/* ================= RADIO BUTTON STYLING ================= */
+/* Force text color for radio labels */
+.stRadio label p {
     color: var(--text-dark) !important;
-    font-weight: 500;
+    font-weight: 500 !important;
 }
 
-.stRadio input[type="radio"] + div {
-    background: white !important;
- 
+div[role="radiogroup"] label > div:first-child {
+    background-color: #FFFFFF !important;
+    border-color: #F77F00 !important;
 }
 
-.stRadio input[type="radio"]:checked + div {
-    background: var(--bg-white) !important;
-    
+div[role="radiogroup"] label[data-baseweb="radio"] {
+    background-color: transparent !important;
 }
 
 /* ================= SELECTBOX FIX (AGGRESSIVE) ================= */
@@ -804,62 +758,64 @@ svg text,
     fill: var(--text-dark) !important;
 }
 
-/* ================= ANALYZE BUTTON FINAL FIX ================= */
+/* ================= RADIO BUTTON STYLING (ROBUST) ================= */
+/* Unchecked State - Force White Background */
+div[role="radiogroup"] label > div:first-child {
+    background-color: #FFFFFF !important;
+    border: 2px solid #F77F00 !important;
+}
 
-/* Button container — CENTER the button */
+/* Checked State - Gradient Fill */
+div[role="radiogroup"] label[data-baseweb="radio"] > div:first-child {
+    background-color: #FFFFFF !important;
+}
+
+div[role="radiogroup"] label[data-baseweb="radio"] > div:first-child > div {
+    background: linear-gradient(135deg, #E63946, #F77F00) !important;
+}
+
+/* Force text color */
+.stRadio label p {
+    color: #1A1A2E !important;
+    font-weight: 600 !important;
+}
+
+/* ================= ANALYZE BUTTON STYLING ================= */
+/* Center the button */
 .stButton {
     display: flex !important;
     justify-content: center !important;
 }
 
-/* Base button */
+/* Gradient Button styling */
 .stButton > button {
-    background-color: var(--bg-white) !important;   /* force white */
-    background-image: none !important;              /* kill dark gradients */
-    color: var(--text-dark) !important;              /* dark text */
-    border: 1px solid rgba(230, 57, 70, 0.25) !important;
-    box-shadow: 0 8px 20px rgba(230, 57, 70, 0.2) !important;
-
-    font-weight: 700 !important;
-    padding: 14px 48px !important;
+    background: linear-gradient(135deg, #E63946, #F77F00) !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    padding: 16px 55px !important;
     border-radius: 50px !important;
-
-    text-align: center !important;
+    font-weight: 800 !important;
+    font-size: 1.15rem !important;
+    box-shadow: 0 12px 35px rgba(230, 57, 70, 0.35) !important;
 }
 
-/* Inner text (Streamlit sometimes wraps text in span/div) */
-.stButton > button span,
+/* Button Text */
 .stButton > button p {
-    color: var(--text-dark) !important;
-    font-weight: 700 !important;
+    color: #FFFFFF !important;
 }
 
-/* Hover */
+/* Hover Effect */
 .stButton > button:hover {
-    background-color: var(--bg-white) !important;
-    background-image: none !important;
     transform: translateY(-3px) scale(1.02) !important;
     box-shadow: 0 18px 45px rgba(230, 57, 70, 0.45) !important;
-    color: var(--text-dark) !important;
+    color: #FFFFFF !important;
 }
 
-/* Active (click) */
+/* Active Effect */
 .stButton > button:active {
-    background-color: var(--bg-white) !important;
-    background-image: none !important;
     transform: translateY(-1px) scale(0.98) !important;
     box-shadow: 0 6px 15px rgba(230, 57, 70, 0.3) !important;
-    color: var(--text-dark) !important;
 }
-
-/* Disabled */
-.stButton > button:disabled {
-    background-color: var(--bg-white) !important;
-    background-image: none !important;
-    color: var(--text-dark) !important;
-    opacity: 0.6 !important;
-}
-
 """, unsafe_allow_html=True)
 # =============================================================================
 # LOAD MODEL & DATA
