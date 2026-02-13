@@ -765,12 +765,13 @@ div[role="radiogroup"] label > div:first-child {
     border: 2px solid #E5E7EB !important;
 }
 
-/* Checked State - Gradient Fill */
+/* Checked State - White Background, Grey Border (Fix for Orange issue) */
 div[role="radiogroup"] label[data-baseweb="radio"] > div:first-child {
     background-color: #FFFFFF !important;
-    border-color: #E63946 !important;
+    border-color: #E5E7EB !important; /* Changed from #E63946 to #E5E7EB */
 }
 
+/* Inner Dot for Checked State - Gradient */
 div[role="radiogroup"] label[data-baseweb="radio"] > div:first-child > div {
     background: linear-gradient(135deg, #E63946, #F77F00) !important;
 }
